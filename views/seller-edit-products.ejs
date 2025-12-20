@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Home | All Products</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="min-h-screen ">
+        <div class="flex items-center justify-between py-3 px-7 mb-1">
+            <img src="../images/ecom-logo.jpg" alt="">
+            <div class="flex gap-7">
+                <ul><a href="/seller/admin" class="text-teal-800">View Added Products</a></ul>
+                <ul><a href="/seller/admin/add" class="bg-teal-900 px-4 py-2 text-white">Add Products</a></ul>
+                <ul><a href="/seller/logout" class="text-red-700">Logout</a></ul>
+            </div>
+        </div>
+        <div class="px-10 py-5 flex flex-col gap-9">
+            <h2 class="text-2xl font-semibold">Edit Products</h2>
+            <form action="" method="post">
+                <div class="flex flex-col gap-2">
+                    <input type="text" class="w-100 bg-zinc-200 px-3 py-2 outline-none" placeholder="Product Name" name="productName" value=<%=product.name%>>
+                    <input type="text" class="w-100 bg-zinc-200 px-3 py-2 outline-none" placeholder="Description" name="description" value=<%=product.description%>>
+                    <input type="text" class="w-100 bg-zinc-200 px-3 py-2 outline-none" placeholder="Price" name="price" value=<%=product.price%>>
+                    <input type="text" class="w-100 bg-zinc-200 px-3 py-2 outline-none" placeholder="Image URL" name="image" value=<%=product.image%>>
+                    <input type="submit" class="w-100 px-3 py-2 bg-teal-800 text-white" value="Add Product">
+                </div>
+            </form>
+            
+        </div>
+        
+    </div>
+</body>
+</html>

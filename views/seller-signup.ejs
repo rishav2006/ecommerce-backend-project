@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Register</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="min-h-screen ">
+        <div class="flex items-center justify-center p-3 mb-15">
+            <img src="../images/ecom-logo.jpg" alt="" width="160px">
+        </div>
+        <form action="/seller/register" method="post" class="flex flex-col justify-center items-center">
+            <h2 class="text-2xl font-semibold mb-4 w-100 text-center">Expand Your Bussiness. <br/> <span class="text-blue-700">Create Account today.</span></h2>
+            <div class="flex flex-col w-70 gap-2">
+                <input type="name" placeholder="Full Name" class="p-2 outline-none bg-zinc-200" name="fullname">
+                <input type="email" placeholder="Email address" class="p-2 outline-none bg-zinc-200" name="email">
+                <input type="password" placeholder="Password" class="p-2 outline-none bg-zinc-200" name="password">
+                <input type="name" placeholder="Phone Number" class="p-2 outline-none bg-zinc-200" name="contact">
+                <input type="name" placeholder="GST Number" class="p-2 outline-none bg-zinc-200" name="gstin">
+                <input type="name" placeholder="Enter Complete Address" class="p-2 outline-none bg-zinc-200" name="address">
+                <input type="submit" value="Create One" class="bg-gray-950 text-white p-2 cursor-pointer active:scale-98">
+                <h3 class="text-center">Already have an account ? <span class="text-emerald-700"><a href="/seller/login">Login</a></span></h3>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
