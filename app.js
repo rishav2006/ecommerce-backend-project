@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const db = require('./config/db');
 const userRouter = require('./routes/userRouter');
 const sellerRouter = require('./routes/sellerRouter');
+const homeRouter = require('./routes/homeRouter');
+const productRouter = require('./routes/productRouter');
 require("dotenv").config();
 
 app.use(express.urlencoded({extended: true}));
@@ -12,6 +14,10 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(cookieParser());
+
+app.use('/', homeRouter);
+
+app.use('/products', productRouter);
 
 app.use('/user', userRouter);
 

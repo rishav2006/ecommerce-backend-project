@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 
 let productSchema = new mongoose.Schema({
     name: String,
-    decription: String,
+    description: String,
     price: Number,
     image: String,
     seller: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'seller',
-        default: ''
+        default: null
     },
     ratings: {
         type: Number,
