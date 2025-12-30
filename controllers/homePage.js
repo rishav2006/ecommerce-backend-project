@@ -2,7 +2,8 @@ const productModel = require('../models/productSchema');
 
 const homePage = async (req, res) => {
     const products = await productModel.find();
-    res.render('home', {products});
+    let user = req.user;
+    res.render('home', {products, user});
 }
 
 module.exports = homePage;

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const userCreation = require("../controllers/createAccount");
 const userLogin = require('../controllers/loginAccount');
+const accountPage = require('../controllers/accountPage');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
@@ -17,5 +18,7 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", userLogin);
+
+router.get('/account/:id', accountPage);
 
 module.exports = router;

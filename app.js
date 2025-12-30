@@ -7,6 +7,7 @@ const userRouter = require('./routes/userRouter');
 const sellerRouter = require('./routes/sellerRouter');
 const homeRouter = require('./routes/homeRouter');
 const productRouter = require('./routes/productRouter');
+const orderRouter = require('./routes/orderRouter');
 require("dotenv").config();
 
 app.use(express.urlencoded({extended: true}));
@@ -18,6 +19,8 @@ app.use(cookieParser());
 app.use('/', homeRouter);
 
 app.use('/products', productRouter);
+
+app.use('/orders', orderRouter);
 
 app.use('/user', userRouter);
 

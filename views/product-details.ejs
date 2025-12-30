@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title><%= product.name%> - Product Details</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,7 @@
     />
   </head>
   <body>
-    <nav class="flex justify-between px-7 py-2">
+    <nav class="flex justify-between px-7 py-2 mb-7">
       <div class="logoPart">
         <img src="../images/ecom-logo.jpg" alt="" width="180px" />
       </div>
@@ -37,7 +37,7 @@
     <div class="productDetails px-5">
       <div class="flex flex-wrap justify-evenly gap-25">
         <div class="left">
-          <img src="<%= product.image %>" alt="" width="500px">
+          <img src="<%= product.image %>" alt="" width="470px" />
         </div>
         <div class="right w-170 pt-17 flex flex-col gap-2">
           <a href="/" class="text-red-500"
@@ -47,10 +47,14 @@
           <h4 class="text-gray-700"><%=product.description%></h4>
           <h2 class="text-2xl font-semibold">$<%=product.price%></h2>
           <div class="flex gap-2">
-            <a href="" class="bg-red-500 text-white px-10 py-2 active:scale-98"
+            <a
+              href="/orders/new/<%=product._id%>"
+              class="bg-red-500 text-white px-10 py-2 active:scale-98"
               >Buy Now</a
             >
-            <a href="" class="bg-gray-200 border-1 border-gray-300 text-black px-10 py-2 active:scale-98"
+            <a
+              href=""
+              class="bg-gray-200 border-1 border-gray-300 text-black px-10 py-2 active:scale-98"
               >Add to Cart</a
             >
           </div>
@@ -77,37 +81,47 @@
       </div>
       <div class="flex flex-wrap justify-evenly mb-5">
         <% if(product.seller){ %>
-        <div class="flex flex-col justify-center px-5 py-7 bg-gray-100 border-1 border-gray-300 mt-15 w-230">
-            <h2 class="text-xl font-semibold mb-1">About the Seller</h2>
-            <h3 class="text-3xl font-bold mb-2"><%= product.seller.name %></h3>
-            <h4 class="text-gray-900 font-semibold text-lg mb-1">Contact Details</h4>
-            <div class="flex gap-2">
-                <i class="ri-mail-fill text-red-500"></i>
-                <h4>Email: <%= product.seller.email %></h4>
-            </div>
-            <div class="flex gap-2">
-                <i class="ri-phone-fill text-red-500"></i>
-                <h4>Contact: <%= product.seller.contact %></h4>
-            </div>
-            <div class="flex gap-2">
-                <i class="ri-map-pin-fill text-red-500"></i>
-                <h4>Address: <%= product.seller.address %></h4>
-            </div>
-            <div class="flex gap-2">
-                <i class="ri-contacts-book-3-line text-red-500"></i>
-                <h4>GSTIN Number: <%= product.seller.gstin %></h4>
-            </div>
+        <div
+          class="flex flex-col justify-center px-5 py-7 bg-gray-100 border-1 border-gray-300 mt-15 w-230"
+        >
+          <h2 class="text-xl font-semibold mb-1">About the Seller</h2>
+          <h3 class="text-3xl font-bold mb-2"><%= product.seller.name %></h3>
+          <h4 class="text-gray-900 font-semibold text-lg mb-1">
+            Contact Details
+          </h4>
+          <div class="flex gap-2">
+            <i class="ri-mail-fill text-red-500"></i>
+            <h4>Email: <%= product.seller.email %></h4>
+          </div>
+          <div class="flex gap-2">
+            <i class="ri-phone-fill text-red-500"></i>
+            <h4>Contact: <%= product.seller.contact %></h4>
+          </div>
+          <div class="flex gap-2">
+            <i class="ri-map-pin-fill text-red-500"></i>
+            <h4>Address: <%= product.seller.address %></h4>
+          </div>
+          <div class="flex gap-2">
+            <i class="ri-contacts-book-3-line text-red-500"></i>
+            <h4>GSTIN Number: <%= product.seller.gstin %></h4>
+          </div>
         </div>
-      <% } %>
-      <div class="flex flex-col justify-center px-5 py-7 bg-gray-100 border-1 border-gray-300 mt-15 w-100">
-            <h2 class="text-xl font-semibold mb-1 text-center">Product Ratings</h2>
-            <div class="flex justify-center items-center gap-3">
-                <i class="ri-star-fill text-5xl text-yellow-500"></i>
-                <h2 class="text-5xl"><%=product.ratings%></h2>
-            </div>
-            <% if(product.ratings == 0){ %>
-                <h2 class="text-center mt-2">No ratings yet! Purchase one to give ratings.</h2>
-            <% } %>
+        <% } %>
+        <div
+          class="flex flex-col justify-center px-5 py-7 bg-gray-100 border-1 border-gray-300 mt-15 w-100"
+        >
+          <h2 class="text-xl font-semibold mb-1 text-center">
+            Product Ratings
+          </h2>
+          <div class="flex justify-center items-center gap-3">
+            <i class="ri-star-fill text-5xl text-yellow-500"></i>
+            <h2 class="text-5xl"><%=product.ratings%></h2>
+          </div>
+          <% if(product.ratings == 0){ %>
+          <h2 class="text-center mt-2">
+            No ratings yet! Purchase one to give ratings.
+          </h2>
+          <% } %>
         </div>
       </div>
     </div>
