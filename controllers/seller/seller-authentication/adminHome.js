@@ -1,4 +1,4 @@
-const sellerModel = require('../models/sellerModel');
+const sellerModel = require('../../../models/sellerModel');
 
 const productList = async (req, res) => {
     const seller = await sellerModel.findById(req.seller._id).populate('products');

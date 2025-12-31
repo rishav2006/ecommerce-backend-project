@@ -1,5 +1,5 @@
-const orderModel = require('../models/orderModel');
-const productModel = require('../models/productSchema');
+const orderModel = require('../../../models/orderModel');
+const productModel = require('../../../models/productSchema');
 
 const orderPage = async (req, res) => {
     let {id} = req.params;

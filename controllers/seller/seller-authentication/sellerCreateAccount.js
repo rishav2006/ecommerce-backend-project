@@ -1,4 +1,4 @@
-const sellerModel = require('../models/sellerModel');
+const sellerModel = require('../../../models/sellerModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 

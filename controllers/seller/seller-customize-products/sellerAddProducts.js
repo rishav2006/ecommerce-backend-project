@@ -1,5 +1,5 @@
-const productModel = require("../models/productSchema");
-const sellerAuth = require("../middlewares/sellerAuth");
+const productModel = require('../../../models/productSchema');
+const sellerAuth = require("../../../middlewares/sellerAuth");
 
 const addProduct = async (req, res) => {
   try {

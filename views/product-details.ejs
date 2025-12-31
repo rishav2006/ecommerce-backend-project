@@ -18,72 +18,72 @@
     />
   </head>
   <body>
-    <nav class="flex justify-between px-7 py-2 mb-7">
+    <nav class="flex justify-between lg:justify-between justify-center px-7 py-2 mb-0 lg:mb-7">
       <div class="logoPart">
-        <img src="../images/ecom-logo.jpg" alt="" width="180px" />
+        <img
+          src="/images/ecom-logo.jpg"
+          class="max-w-full h-auto"
+          width="180"
+        />
       </div>
-      <div class="lists flex items-center gap-4">
-        <ul>
-          <a href="/">Products</a>
-        </ul>
-        <ul>
-          <a href="">Cart</a>
-        </ul>
-        <ul>
-          <a href="">My Account</a>
-        </ul>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="/" class="hover:text-red-500">Products</a>
+        <a href="" class="hover:text-red-500">Cart</a>
+        <a href="" class="hover:text-red-500">My Account</a>
+      </div>
+    </nav>
+
+    <nav>
+      <div class="flex lg:hidden justify-between px-8 py-1 bg-gray-100 mb-8">
+        <a href="/" class="hover:text-red-500">Home</a>
+        <a href="/" class="hover:text-red-500">Products</a>
+        <a href="" class="hover:text-red-500">Cart</a>
+        <a href="" class="hover:text-red-500">My Account</a>
       </div>
     </nav>
     <div class="productDetails px-5">
-      <div class="flex flex-wrap justify-evenly gap-25">
+      <div class="flex flex-wrap justify-evenly md:gap-16 lg:gap-32">
         <div class="left">
           <img src="<%= product.image %>" alt="" width="470px" />
         </div>
-        <div class="right w-170 pt-17 flex flex-col gap-2">
+        <div class="right w-full lg:w-170 pt-17 flex flex-col gap-2">
           <a href="/" class="text-red-500"
             ><i class="ri-arrow-left-line"></i> Go back</a
           >
-          <h2 class="text-4xl font-bold"><%=product.name%></h2>
+          <h2 class="text-2xl lg:text-4xl font-bold"><%=product.name%></h2>
           <h4 class="text-gray-700"><%=product.description%></h4>
           <h2 class="text-2xl font-semibold">$<%=product.price%></h2>
-          <div class="flex gap-2">
-            <a
-              href="/orders/new/<%=product._id%>"
-              class="bg-red-500 text-white px-10 py-2 active:scale-98"
-              >Buy Now</a
-            >
-            <a
-              href=""
-              class="bg-gray-200 border-1 border-gray-300 text-black px-10 py-2 active:scale-98"
-              >Add to Cart</a
-            >
+          <div class="flex flex-col sm:flex-row gap-3 mt-2">
+            <a href="/orders/new/<%=product._id%>" class="bg-red-500 text-white px-10 lg:py-2 py-3 text-center active:scale-98">Buy Now</a>
+            <a href="" class="bg-gray-200 border-1 border-gray-300 text-black px-10 lg:py-2 py-3 text-center active:scale-98" >Add to Cart</a>
           </div>
-          <div class="w-170 h-[1px] bg-gray-300 my-5"></div>
+          <div class="w-full lg:w-170 h-[1px] bg-gray-300 my-5"></div>
           <div class="flex gap-7">
             <div>
               <i class="ri-verified-badge-fill text-emerald-600 text-3xl"></i>
-              <h3>Trusted Seller</h3>
+              <h3 class="lg:text-md">Trusted Seller</h3>
             </div>
             <div>
               <i class="ri-star-smile-fill text-red-500 text-3xl"></i>
-              <h3>Best in Quality</h3>
+              <h3 class="lg:text-md">Best in Quality</h3>
             </div>
             <div>
               <i class="ri-reset-left-fill text-3xl"></i>
-              <h3 class="">7 Days Return</h3>
+              <h3 class="lg:text-md">7 Days Return</h3>
             </div>
-            <div>
-              <i class="ri-star-fill text-yellow-500 text-3xl"></i>
-              <h3 class="">Top Product</h3>
-            </div>
+            <%if(product.ratings > 4){ %>
+              <div>
+                <i class="ri-star-fill text-yellow-500 text-3xl"></i>
+                <h3 class="lg:text-md">Top Product</h3>
+              </div>
+            <% }%>
           </div>
         </div>
       </div>
-      <div class="flex flex-wrap justify-evenly mb-5">
+      <div class="flex flex-wrap lg:justify-between mb-5 md:justify-evenly">
         <% if(product.seller){ %>
-        <div
-          class="flex flex-col justify-center px-5 py-7 bg-gray-100 border-1 border-gray-300 mt-15 w-230"
-        >
+        <div class="flex flex-col justify-center px-5 py-7 bg-gray-100 border-1 border-gray-300 mt-15 w-230">
           <h2 class="text-xl font-semibold mb-1">About the Seller</h2>
           <h3 class="text-3xl font-bold mb-2"><%= product.seller.name %></h3>
           <h4 class="text-gray-900 font-semibold text-lg mb-1">
@@ -124,6 +124,24 @@
           <% } %>
         </div>
       </div>
+    </div>
+    <div class="footer bg-gray-950 text-white flex flex-col lg:flex-row items-center lg:justify-between gap-6 lg:gap-0 px-4 sm:px-6 lg:px-15 py-7">
+        <div class="left flex flex-col items-center lg:items-start gap-2">
+            <img src="/images/ecom-logo.jpg" alt="Ecom Logo" class="w-40 sm:w-48 lg:w-[240px]"/>
+            <h3 class="text-sm sm:text-base">Made by Rishav ❤️</h3>
+        </div>
+
+
+        <div class="right w-full lg:w-auto">
+            <ul class="flex flex-wrap justify-center lg:justify-end gap-x-6 gap-y-2 text-sm sm:text-base">
+                <li><a href="" class="hover:underline">Products</a></li>
+                <li><a href="" class="hover:underline">Account Center</a></li>
+                <li><a href="" class="hover:underline">My Cart</a></li>
+                <li><a href="" class="hover:underline">My Orders</a></li>
+                <li><a href="" class="hover:underline">Become a Seller</a></li>
+                <li><a href="" class="hover:underline">Github Page</a></li>
+            </ul>
+        </div>
     </div>
   </body>
 </html>

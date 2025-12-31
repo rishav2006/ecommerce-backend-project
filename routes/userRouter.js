@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const userCreation = require("../controllers/createAccount");
-const userLogin = require('../controllers/loginAccount');
-const accountPage = require('../controllers/accountPage');
+const userAuth = require('../middlewares/userAuth');
+const userCreation = require("../controllers/user/user-authentication/createAccount");
+const userLogin = require('../controllers/user/user-authentication/loginAccount');
+const accountPage = require('../controllers/user/user-pages/accountPage');
+const userOrders = require('../controllers/user/user-pages/userOrder');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
@@ -20,5 +22,7 @@ router.get("/login", (req, res) => {
 router.post("/login", userLogin);
 
 router.get('/account/:id', accountPage);
+
+router.get("/account/my-orders/:id", userAuth, userOrders);
 
 module.exports = router;

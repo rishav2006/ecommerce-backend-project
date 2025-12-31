@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Figtree:ital,wght@0,300..900;1,300..900&family=Hachi+Maru+Pop&family=Manrope:wght@200..800&family=Metrophobic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&family=Raleway:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="flex justify-between lg:justify-between justify-center px-7 py-2 mb-0 lg:mb-7">
+      <div class="logoPart">
+        <img
+          src="/images/ecom-logo.jpg"
+          class="max-w-full h-auto"
+          width="180"
+        />
+      </div>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="/" class="hover:text-red-500">Products</a>
+        <a href="" class="hover:text-red-500">Cart</a>
+        <a href="" class="text-red-500">My Account</a>
+      </div>
+    </nav>
+
+    <nav>
+      <div class="flex lg:hidden justify-between px-8 py-1 bg-gray-100 mb-5">
+        <a href="/" class="hover:text-red-500">Products</a>
+        <a href="" class="hover:text-red-500">Cart</a>
+        <a href="" class="text-red-500">My Account</a>
+      </div>
+    </nav>
+    <div class="px-7 py-5">
+        <h2 class="mb-3 lg:text-3xl font-bold md:text-2xl">My Orders</h2>
+        <div class="flex flex-wrap gap-5 md:items-center">
+            <% orders.reverse().forEach(function(val){ %>
+                <% val.products.forEach(function(order){ %>
+                    <div class="order-item flex bg-gray-100 max-w-100 md:max-w-4xl gap-3 md:gap-4 p-3 md:py-3 md:pl-4 md:pr-6 border border-gray-200 rounded-lg">
+                    <img  src="<%=order.image%>" alt="" class="w-24 md:w-[105px] mx-auto md:mx-0 rounded">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg md:text-2xl font-semibold"><%=order.name%></h3>
+                        <h4 class="text-base md:text-xl text-gray-700">$<%=order.price%></h4>
+                        <h4 class="text-sm md:text-base text-gray-700">Purchased on: <%=val.date.toDateString()%></h4>
+                        <h5 class="text-xs md:text-sm text-gray-700">Payment Method: <%=val.payment%></h5>
+                    </div>
+                    </div>
+                <% }) %>
+            <% }) %>
+        </div>
+    </div>
+  </body>
+</html>

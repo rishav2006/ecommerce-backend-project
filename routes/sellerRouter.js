@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const createSeller = require('../controllers/sellerCreateAccount');
-const sellerLogin = require('../controllers/sellerLogin');
-const sellerLogout = require('../controllers/sellerLogout');
+const createSeller = require('../controllers/seller/seller-authentication/sellerCreateAccount');
+const sellerLogin = require('../controllers/seller/seller-authentication/sellerLogin');
+const sellerLogout = require('../controllers/seller/seller-authentication/sellerLogout');
 const seller = require('../middlewares/sellerAuth');
-const addProduct = require('../controllers/sellerAddProducts');
-const productList = require('../controllers/adminHome');
-const productEdit = require('../controllers/sellerEdit');
+const addProduct = require('../controllers/seller/seller-customize-products/sellerAddProducts');
+const productList = require('../controllers/seller/seller-authentication/adminHome');
+const productEdit = require('../controllers/seller/seller-customize-products/sellerEdit');
 const productModel = require('../models/productSchema');
 
 router.get('/login', (req, res) => {
