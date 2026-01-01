@@ -9,6 +9,11 @@ let sellerSchema = new mongoose.Schema({
         ref: 'product',
         default: []
     }],
+    orders: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'order',
+        default: []
+    }],
     contact: Number,
     gstin: Number,
     address: String

@@ -8,6 +8,7 @@ const addProduct = require('../controllers/seller/seller-customize-products/sell
 const productList = require('../controllers/seller/seller-authentication/adminHome');
 const productEdit = require('../controllers/seller/seller-customize-products/sellerEdit');
 const productModel = require('../models/productSchema');
+const viewOrders = require('../controllers/seller/seller-orders/viewOrders');
 
 router.get('/login', (req, res) => {
     res.render('seller-login');
@@ -25,14 +26,16 @@ router.get('/admin', seller, productList);
 
 router.get('/admin/add', seller, (req, res) => {
     res.render('seller-add-products');
-})
+});
 
-router.post('/admin/add', seller, addProduct)
+router.post('/admin/add', seller, addProduct);
 
 router.get('/admin/edit/:_id', seller, async (req, res) => {
     const product = await productModel.findById(req.params._id);
     res.render('seller-edit-products', {product});
-})
+});
+
+router.get('/admin/view-orders', seller, viewOrders);
 
 router.get('/logout', sellerLogout);
 

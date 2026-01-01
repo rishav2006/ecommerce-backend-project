@@ -5,10 +5,11 @@ let userSchema = new mongoose.Schema({
     image: String,
     email: String,
     password: String,
-    cart: {
-        type: Array,
+    cart: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'product',
         default: []
-    },
+    }],
     orders: {
         type: Array,
         default: []

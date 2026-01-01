@@ -9,10 +9,6 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'product'
     }],
-    seller: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'seller'
-    },
     payment: {
         type: String,
         default: 'Pay On Delivery'

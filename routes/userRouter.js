@@ -21,7 +21,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", userLogin);
 
-router.get('/account/:id', accountPage);
+router.get('/account', userAuth, accountPage);
 
 router.get("/account/my-orders/:id", userAuth, userOrders);
 

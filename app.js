@@ -7,6 +7,7 @@ const userRouter = require('./routes/userRouter');
 const sellerRouter = require('./routes/sellerRouter');
 const homeRouter = require('./routes/homeRouter');
 const productRouter = require('./routes/productRouter');
+const cartRouter = require('./routes/cartRouter');
 const orderRouter = require('./routes/orderRouter');
 require("dotenv").config();
 
@@ -19,6 +20,8 @@ app.use(cookieParser());
 app.use('/', homeRouter);
 
 app.use('/products', productRouter);
+
+app.use('/cart', cartRouter);
 
 app.use('/orders', orderRouter);
 
