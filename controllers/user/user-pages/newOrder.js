@@ -4,18 +4,20 @@ const sellerModel = require('../../../models/sellerModel');
 
 const newOrder = async (req, res) => {
     const {id} = req.params;
-    const {address, pincode} = req.body;
+    const {address, pincode, contact} = req.body;
 
     try{
         const product = await productModel.findById(id).populate('seller');
         if (!product){
             return res.status(404).json({message: "Product not found"});
         }
+        if(!address || !pincode || !contact) res.send('Please fill in all the details');
         const order = await orderModel.create({
             customer: req.user._id,
             products: [product._id],
             address,
             pincode,
+            contact,
             date: new Date()
         });
         const seller = await sellerModel.findById(product.seller._id);

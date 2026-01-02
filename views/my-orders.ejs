@@ -45,7 +45,7 @@
         <h2 class="mb-3 lg:text-3xl font-bold md:text-2xl">My Orders</h2>
         <div class="flex flex-wrap gap-5 md:items-center">
             <% orders.reverse().forEach(function(val){ %>
-                <% val.products.forEach(function(order){ %>
+                <% val.products.reverse().forEach(function(order){ %>
                     <div class="order-item flex bg-gray-100 max-w-100 md:max-w-4xl gap-3 md:gap-4 p-3 md:py-3 md:pl-4 md:pr-6 border border-gray-200 rounded-lg">
                     <img  src="<%=order.image%>" alt="" class="w-24 md:w-[105px] mx-auto md:mx-0 rounded">
                     <div class="flex flex-col">

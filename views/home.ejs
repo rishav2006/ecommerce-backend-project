@@ -46,12 +46,12 @@
   <!-- `     <a href="" class="bg-gray-950 text-white px-6 py-3 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base">View Products</a> -->
     </div>
 
-    <div class="p-10">
+    <div class="p-7 lg:p-10">
         <h2 class="font-bold text-2xl text-center mb-3">PRODUCTS SPACE</h2>
-        <div class="cards flex flex-wrap gap-4">
+        <div class="cards flex flex-wrap gap-4 justify-between lg:justify-start">
             <% products.forEach(function(val){ %>
             <a href="products/<%=val._id%>">
-                <div class="card w-50 bg-gray-100 p-3 flex flex-col">
+                <div class="card w-40 lg:w-50 bg-gray-100 p-3 flex flex-col">
                 <img src=<%=val.image%> alt="">
                 <% if(val.ratings > 4){ %>
                     <h4 class="bg-red-500 text-white text-[12px] flex items-center gap-1 px-1 py-0.5"><i class="ri-star-smile-fill"></i>Top Product</h4>

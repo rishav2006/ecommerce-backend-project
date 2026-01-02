@@ -14,10 +14,16 @@ const orderSchema = new mongoose.Schema({
         default: 'Pay On Delivery'
     },
     address: {
-        type: String
+        type: String,
+        required: true
     },
     pincode: {
-        type: Number
+        type: Number,
+        required: true
+    },
+    contact: {
+        type: Number,
+        required: true
     },
     date: {
         type: Date

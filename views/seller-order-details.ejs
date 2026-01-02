@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details | Seller Admin</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Figtree:ital,wght@0,300..900;1,300..900&family=Hachi+Maru+Pop&family=Manrope:wght@200..800&family=Metrophobic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&family=Raleway:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="min-h-screen ">
+    <nav class="flex justify-between lg:justify-between justify-center px-7 py-2 mb-0">
+      <div class="logoPart">
+        <img
+          src="/images/ecom-logo.jpg"
+          class="max-w-full h-auto"
+          width="180"
+        />
+      </div>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="/seller/admin/view-orders" class="text-indigo-600">View Orders</a>
+        <a href="/seller/admin" class="text-indigo-600">View Added Products</a>
+        <a href="/seller/admin/add" class="bg-indigo-600 text-white px-4 py-2">Add Products</a>
+        <a href="/seller/logout" class="text-red-500">Logout</a>
+      </div>
+    </nav>
+
+    <nav>
+      <div class="flex lg:hidden justify-between px-8 py-1 bg-gray-100 mb-0 border-b-1 border-gray-300">
+        <a href="/seller/admin/view-orders" class="text-indigo-600">Orders</a>
+        <a href="/seller/admin" class="text-indigo-600">Your Products</a>
+        <a href="/seller/admin/add" class="bg-indigo-600 text-white px-3">Add</a>
+        <a href="/seller/logout" class="text-red-500">Logout</a>
+      </div>
+    </nav>
+        <div class="px-7 py-5 lg:px-10 flex flex-col gap-3 lg:gap-5 mb-15 lg:mb-0">
+            <h2 class="text-2xl font-semibold">Order Details</h2>
+            <div class="flex flex-wrap gap-4 lg:gap-10 justify-between">
+                <div class="left flex flex-col gap-3">
+                    <% mainProducts.forEach(function(val) { %>
+                        <div class="item bg-gray-100 border-1 border-gray-300 pl-2 pr-4 py-2 flex gap-3 items-center rounded-lg w-full lg:w-110">
+                            <img src="<%=val.image%>" alt="" width="130" class="rounded-md">
+                            <div class="flex flex-col gap-0.5">
+                                <h3 class="text-2xl font-semibold"><%=val.name%></h3>
+                                <h3>$<%=val.price%></h3>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+
+                <div class="right">
+                    <div class="w-full lg:w-110 bg-gray-100 border-1 border-gray-300 p-5 rounded-lg">
+                        <h2 class="text-2xl font-semibold mb-2">Customer Details</h2>
+                        <h3 class="text-lg">Name: <%=orderUser.customer.name%></h3>
+                        <h3 class="text-lg mb-2">Phone: <%=orders.contact%></h3>
+                        <h2 class="text-2xl font-semibold mb-1">Billed Amount</h2>
+                        <% let tAmount = 0 %>
+                        <div class="flex flex-col mb-2">
+                            <div class="flex flex-col gap-1">
+                                <% mainProducts.forEach(function(val) { %>
+                                    <div class="flex gap-4 justify-between">
+                                        <h3 class="text-lg"><%= val.name %></h3>
+                                        <h3 class="text-lg">$<%= val.price %></h3>
+                                        <% tAmount += val.price %>
+                                    </div>
+                                <% }) %>
+                            </div>
+                            <div class="flex gap-4 justify-between mt-2">
+                                <h3 class="text-lg font-semibold">Total Bill:</h3>
+                                <h3 class="text-lg font-semibold">$<%=tAmount%></h3>
+                            </div>
+                        </div>
+                        <h2 class="text-2xl font-semibold mb-2">Address Details</h2>
+                        <h4 class="flex gap-2 text-lg"><i class="ri-map-pin-fill text-indigo-600 text-lg"></i><span class="text-indigo-600">Address:</span> <%= orderUser.address %></h4>
+                        <h4 class="flex gap-2 text-lg mb-3"><i class="ri-map-pin-3-line text-indigo-600 text-lg"></i><span class="text-indigo-600">Pincode:</span> <%= orderUser.pincode %></h4>
+                        <a href="https://one.delhivery.com/v2/register" class="text-white bg-gray-900 flex justify-center items-center py-3">Ship Using Delhivery</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
