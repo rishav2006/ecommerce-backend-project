@@ -31,4 +31,5 @@ app.use('/user', userRouter);
 
 app.use('/seller', sellerRouter);
 
-app.listen(process.env.PORT);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT);
