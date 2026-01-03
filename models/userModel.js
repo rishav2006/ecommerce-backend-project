@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 let userSchema = new mongoose.Schema({
-    name: String,
+    fullname: String,
     image: String,
     email: String,
     password: String,
@@ -14,7 +14,7 @@ let userSchema = new mongoose.Schema({
         type: Array,
         default: []
     },
-    contact: Number,
+    contact: String,
     address: {
         type: String,
         default: ""

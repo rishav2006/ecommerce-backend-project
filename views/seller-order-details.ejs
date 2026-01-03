@@ -17,7 +17,7 @@
     <nav class="flex justify-between lg:justify-between justify-center px-7 py-2 mb-0">
       <div class="logoPart">
         <img
-          src="/images/ecom-logo.jpg"
+          src="/images/ecom-logo.png"
           class="max-w-full h-auto"
           width="180"
         />
@@ -57,7 +57,7 @@
                 <div class="right">
                     <div class="w-full lg:w-110 bg-gray-100 border-1 border-gray-300 p-5 rounded-lg">
                         <h2 class="text-2xl font-semibold mb-2">Customer Details</h2>
-                        <h3 class="text-lg">Name: <%=orderUser.customer.name%></h3>
+                        <h3 class="text-lg">Name: <%=orderUser.customer.fullname%></h3>
                         <h3 class="text-lg mb-2">Phone: <%=orders.contact%></h3>
                         <h2 class="text-2xl font-semibold mb-1">Billed Amount</h2>
                         <% let tAmount = 0 %>

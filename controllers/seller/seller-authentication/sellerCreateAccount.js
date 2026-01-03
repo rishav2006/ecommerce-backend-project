@@ -3,14 +3,14 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const createSellerAccount = async (req, res) => {
-    let {fullname, email, password, contact, gstin, address} = req.body;
-    if(!fullname || !email || !password || !contact || !gstin || !address) return res.send('Some fields are missing');
+    let {name, email, password, contact, gstin, address} = req.body;
+    if(!name || !email || !password || !contact || !gstin || !address) return res.send('Some fields are missing');
     let checkUser = await sellerModel.findOne({email});
     if(checkUser) return res.send('Seller Already Exists');
     let salt = await bcrypt.genSalt(10);
     let hash = await bcrypt.hash(password, salt);
     let newSeller = await sellerModel.create({
-        fullname,
+        name,
         email,
         password: hash,
         contact,
@@ -22,7 +22,7 @@ const createSellerAccount = async (req, res) => {
         httpOnly: true,
         maxAge: 7 * 24 * 60 * 60 * 1000
     });
-    res.send('Seller Created');
+    res.redirect('/seller/admin');
 }
 
 module.exports = createSellerAccount;

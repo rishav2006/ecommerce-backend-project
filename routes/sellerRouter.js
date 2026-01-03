@@ -31,10 +31,12 @@ router.get('/admin/add', seller, (req, res) => {
 
 router.post('/admin/add', seller, addProduct);
 
-router.get('/admin/edit/:_id', seller, async (req, res) => {
-    const product = await productModel.findById(req.params._id);
+router.get('/admin/edit/:id', seller, async (req, res) => {
+    let product = await productModel.findById(req.params.id);
     res.render('seller-edit-products', {product});
 });
+
+router.post('/admin/edit/:id', seller, productEdit);
 
 router.get('/admin/view-orders', seller, viewOrders);
 

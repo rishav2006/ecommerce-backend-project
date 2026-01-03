@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout</title>
+    <title>Cart Checkout</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +21,7 @@
     <nav class="flex justify-between lg:justify-between justify-center px-7 py-2 mb-0 lg:mb-7">
       <div class="logoPart">
         <img
-          src="/images/ecom-logo.jpg"
+          src="/images/ecom-logo.png"
           class="max-w-full h-auto"
           width="180"
         />
@@ -116,7 +116,7 @@
             <div class="payment flex flex-col gap-2">
               <h4 class="text-xl md:text-2xl font-semibold">Choose Payment Method</h4>
               <div class="flex gap-2 mb-2 md:justify-start">
-                <input type="radio" name="POD" id="" value="Pay on Delivery" />
+                <input type="radio" name="POD" id="" value="Pay on Delivery" checked disabled/>
                 <label for="html">Pay On Delivery</label>
               </div>
               <input
@@ -131,19 +131,19 @@
     </div>
     <div class="footer bg-gray-950 text-white flex flex-col lg:flex-row items-center lg:justify-between gap-6 lg:gap-0 px-4 sm:px-6 lg:px-15 py-7">
         <div class="left flex flex-col items-center lg:items-start gap-2">
-            <img src="/images/ecom-logo.jpg" alt="Ecom Logo" class="w-40 sm:w-48 lg:w-[240px]"/>
+            <img src="../images/ecom-logo-light.png" alt="Ecom Logo" class="w-40 sm:w-48 lg:w-[240px]"/>
             <h3 class="text-sm sm:text-base">Made by Rishav ❤️</h3>
         </div>
 
 
         <div class="right w-full lg:w-auto">
             <ul class="flex flex-wrap justify-center lg:justify-end gap-x-6 gap-y-2 text-sm sm:text-base">
-                <li><a href="" class="hover:underline">Products</a></li>
-                <li><a href="" class="hover:underline">Account Center</a></li>
-                <li><a href="" class="hover:underline">My Cart</a></li>
-                <li><a href="" class="hover:underline">My Orders</a></li>
-                <li><a href="" class="hover:underline">Become a Seller</a></li>
-                <li><a href="" class="hover:underline">Github Page</a></li>
+                <li><a href="/" class="hover:underline">Products</a></li>
+                <li><a href="/user/account" class="hover:underline">Account Center</a></li>
+                <li><a href="/cart" class="hover:underline">My Cart</a></li>
+                <li><a href="/user/account/my-orders" class="hover:underline">My Orders</a></li>
+                <li><a href="/seller/register" class="hover:underline">Become a Seller</a></li>
+                <li><a href="https://github.com/rishav2006" class="hover:underline">Github Page</a></li>
             </ul>
         </div>
     </div>

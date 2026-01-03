@@ -8,6 +8,9 @@ const userOrders = require('../controllers/user/user-pages/userOrder');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
+const getAccountDetails = require("../controllers/user/user-pages/getAccountDetails");
+const changeAccountDetails = require("../controllers/user/user-pages/changeAccountDetails");
+const userLogout = require("../controllers/user/user-authentication/userLogout");
 
 router.get("/create", (req, res) => {
   res.render("signup");
@@ -23,6 +26,12 @@ router.post("/login", userLogin);
 
 router.get('/account', userAuth, accountPage);
 
-router.get("/account/my-orders/:id", userAuth, userOrders);
+router.get("/account/my-orders", userAuth, userOrders);
+
+router.get("/account/my-account", userAuth, getAccountDetails);
+
+router.post("/account/my-account", userAuth, changeAccountDetails);
+
+router.get("/account/logout", userLogout);
 
 module.exports = router;

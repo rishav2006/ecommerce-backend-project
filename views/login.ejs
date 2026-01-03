@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Figtree:ital,wght@0,300..900;1,300..900&family=Hachi+Maru+Pop&family=Manrope:wght@200..800&family=Metrophobic&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&family=Raleway:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 </head>
 <body>
     <div class="min-h-screen ">
         <div class="flex items-center justify-center p-3 mb-30">
-            <img src="../images/ecom-logo.jpg" alt="" width="160px">
+            <img src="/images/ecom-logo.png" alt="" width="160px">
         </div>
         <form action="/user/login" method="post" class="flex flex-col justify-center items-center">
             <h2 class="text-2xl font-semibold mb-4">Login</h2>
@@ -17,7 +28,7 @@
                 <input type="email" placeholder="Email address" class="p-2 outline-none bg-zinc-200" name="email">
                 <input type="password" placeholder="Password" class="p-2 outline-none bg-zinc-200" name="password">
                 <input type="submit" value="Login" class="bg-gray-950 text-white p-2 cursor-pointer active:scale-98">
-                <h3 class="text-center">Don't have an account ? <span class="text-indigo-600"><a href="./signup">Create One</a></span></h3>
+                <h3 class="text-center">Don't have an account ? <span class="text-indigo-600"><a href="/user/create">Create One</a></span></h3>
             </div>
         </form>
     </div>

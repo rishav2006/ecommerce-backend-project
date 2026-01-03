@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const cookieParser = require('cookie-parser');
+require("dotenv").config();
 const db = require('./config/db');
 const userRouter = require('./routes/userRouter');
 const sellerRouter = require('./routes/sellerRouter');
@@ -9,7 +10,6 @@ const homeRouter = require('./routes/homeRouter');
 const productRouter = require('./routes/productRouter');
 const cartRouter = require('./routes/cartRouter');
 const orderRouter = require('./routes/orderRouter');
-require("dotenv").config();
 
 app.use(express.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
@@ -29,4 +29,4 @@ app.use('/user', userRouter);
 
 app.use('/seller', sellerRouter);
 
-app.listen(3000);
+app.listen(process.env.PORT);

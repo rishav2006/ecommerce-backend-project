@@ -6,7 +6,7 @@ const userModel = require('../models/userModel');
 const productModel = require('../models/productSchema');
 const userAuth = require('../middlewares/userAuth');
 
-router.get('/new/:id', orderPage);
+router.get('/new/:id', userAuth, orderPage);
 
 router.post('/new/:id', userAuth, newOrder);
 

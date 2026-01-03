@@ -23,7 +23,7 @@ const userLogin = async (req, res) => {
       httpOnly: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
-    res.send("Login Successful");
+    res.redirect('/');
 
   } catch (err) {
     res.send(err.message);

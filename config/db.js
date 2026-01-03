@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://127.0.0.1:27017/amex").then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log('MongoDB connected');
 }).catch((err) => {
     console.log(err.message);
 });
+
 
 module.exports = mongoose.connection;

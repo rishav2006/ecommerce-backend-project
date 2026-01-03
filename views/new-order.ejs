@@ -21,7 +21,7 @@
     <nav class="flex justify-between lg:justify-between justify-center px-7 py-2 mb-0 lg:mb-7">
       <div class="logoPart">
         <img
-          src="/images/ecom-logo.jpg"
+          src="/images/ecom-logo.png"
           class="max-w-full h-auto"
           width="180"
         />
@@ -29,16 +29,16 @@
 
       <div class="hidden lg:flex items-center gap-4">
         <a href="/" class="hover:text-red-500">Products</a>
-        <a href="" class="hover:text-red-500">Cart</a>
-        <a href="/user/account" class="text-red-500">My Account</a>
+        <a href="/cart" class="hover:text-red-500">Cart</a>
+        <a href="/user/account" class="hover:text-red-500">My Account</a>
       </div>
     </nav>
 
     <nav>
       <div class="flex lg:hidden justify-between px-8 py-1 bg-gray-100 mb-8">
         <a href="/" class="hover:text-red-500">Products</a>
-        <a href="" class="hover:text-red-500">Cart</a>
-        <a href="/user/account" class="text-red-500">My Account</a>
+        <a href="/cart" class="hover:text-red-500">Cart</a>
+        <a href="/user/account" class="hover:text-red-500">My Account</a>
       </div>
     </nav>
     <div class="pl-4 pr-4 py-4 md:pl-10 md:pr-20 md:py-5">
@@ -53,7 +53,7 @@
               <img
                 src="<%=product.image%>"
                 alt=""
-                class="w-32 md:w-[140px]"
+                class="w-25 md:w-[140px]"
               />
               <div class="flex flex-col text-base md:text-xl ml-0 md:ml-4 mt-2 md:mt-0 md:text-left">
                 <h4 class="font-semibold"><%=product.name%></h4>
@@ -65,6 +65,21 @@
             <h4 class="text-center pt-2 text-gray-700">No more items</h4>
           </div>
           <div class="right flex flex-col gap-3 w-full md:w-auto">
+
+            <div class="bg-gray-100 px-5 py-3 border-1 border-gray-300">
+              <h2 class="text-xl md:text-2xl font-semibold mb-3">Total Amount</h2>
+              <div class="flex flex-col">
+                <div class="flex gap-2 justify-between lg:px-4">
+                  <h4 class="text-md lg:text-lg text-gray-700"><%=product.name%></h4>
+                  <h4 class="text-md lg:text-lg text-gray-700">$<%=product.price%></h4>
+                </div>
+                <div class="w-full bg-gray-200 h-[1px] mt-2"></div>
+                <div class="flex justify-between lg:px-4 mt-2 ">
+                  <h2 class="text-xl font-semibold">Total</h2>
+                  <h2 class="text-xl font-semibold">$<%=product.price%></h2>
+                </div>
+              </div>
+            </div>
             
             <div class="address flex flex-wrap flex-col gap-2">
               <h2 class="text-xl md:text-2xl font-semibold">Address Details</h2>
@@ -90,7 +105,7 @@
             <div class="payment flex flex-col gap-2">
               <h4 class="text-xl md:text-2xl font-semibold">Choose Payment Method</h4>
               <div class="flex gap-2 mb-2 md:justify-start">
-                <input type="radio" name="POD" id="" value="Pay on Delivery" />
+                <input type="radio" name="POD" id="" value="Pay on Delivery" checked disabled/>
                 <label for="html">Pay On Delivery</label>
               </div>
               <input
@@ -102,6 +117,24 @@
           </div>
         </div>
       </form>
+    </div>
+    <div class="footer bg-gray-950 text-white flex flex-col lg:flex-row items-center lg:justify-between gap-6 lg:gap-0 px-4 sm:px-6 lg:px-15 py-7">
+        <div class="left flex flex-col items-center lg:items-start gap-2">
+            <img src="/images/ecom-logo-light.png" alt="Ecom Logo" class="w-40 sm:w-48 lg:w-[240px]"/>
+            <h3 class="text-sm sm:text-base">Made by Rishav ❤️</h3>
+        </div>
+
+
+        <div class="right w-full lg:w-auto">
+            <ul class="flex flex-wrap justify-center lg:justify-end gap-x-6 gap-y-2 text-sm sm:text-base">
+                <li><a href="/" class="hover:underline">Products</a></li>
+                <li><a href="/user/account" class="hover:underline">Account Center</a></li>
+                <li><a href="/cart" class="hover:underline">My Cart</a></li>
+                <li><a href="/user/account/my-orders" class="hover:underline">My Orders</a></li>
+                <li><a href="/seller/register" class="hover:underline">Become a Seller</a></li>
+                <li><a href="https://github.com/rishav2006" class="hover:underline">Github Page</a></li>
+            </ul>
+        </div>
     </div>
 
   </body>
